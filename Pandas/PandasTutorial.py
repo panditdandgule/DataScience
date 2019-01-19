@@ -74,6 +74,6 @@ data3.rename(index=str.upper,inplace=True)
 
 df=pd.DataFrame({"a":[4,5,6],
                  "b":[7,8,9],
-                 "c":[10,11,12]},index=[1,2,3])
+                 "c":[10,11,2]},index=[1,2,3])
     
 df
