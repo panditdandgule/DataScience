@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jan 17 08:56:07 2019
+
+@author: pandit
+"""
+
+import pandas as pd
+import  numpy as np
+import matplotlib.pyplot as plt
+import  seaborn as sns
+
+Series1=pd.Series([7,8,6,'Avenger',np.nan])
+
+Series1.head()
+
+Series1.isnull()
+Series1.notnull()
+
+Series1.isnull().sum()
+
+Series1.notnull().sum()
+
+dataset=pd.read_csv('/home/pandit/Downloads/Kaggle/all/train.csv')
+
+dataset.head()
+
+dataset[dataset['Age'].isnull()].head()
+
+dataset[dataset['Age'].isnull()].head
+
+dataset['Sex']=dataset['Sex'].replace('female',np.nan)
+
+dataset.head()
+
+dataset['Sex']=dataset['Sex'].replace('female',np.nan)
+
+dataset.Sex
+
+dataset.isnull().sum()
+
+data_without_missing_values_cols=dataset.dropna(axis=1)
+
+data_without_missing_values_cols
+
+cols_with_missing_values=[col for col in dataset.columns if dataset[col].isnull().any()]
+
+cols_with_missing_values
+
+reduced_Data=dataset.drop(cols_with_missing_values,axis=1)
+
+
+reduced_Data
+
+Ls_index=pd.date_range('01/01/2018',periods=9,freq='w')
+
+Ls_index
+
+df=pd.DataFrame(index=Ls_index)
+
+df
+
+df.interpolate()
+
+df.ffill()
+
+df.bfill()
+
+df['no_of_cars']=pd.DataFrame([100,200,np.nan,np.nan,500,np.nan,np.nan,800])
+
+df
+
+df.interpolate()
+
+
+df.ffill()
+
+df.bfill()
