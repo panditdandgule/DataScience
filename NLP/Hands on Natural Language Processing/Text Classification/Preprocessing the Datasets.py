@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Feb  9 08:44:54 2019
+
+@author: pandit
+"""
+
+import re
+import nltk
+import numpy as np
+import pickle
+from nltk.corpus import stopwords
+from sklearn.datasets import load_files
+nltk.download('stopwords')
+
+#Importing the datasets
+reviews=load_files('/home/pandit/Downloads/NLP/Hands on Natural Language Processing/Text Classification/txt_sentoken')
+X,y=reviews.data,reviews.target
+
+#Pickling the dataset
+with open('X.pickle','wb') as f:
+    pickle.dump(X,f)
+    
+with open('y.pickle','wb') as f:
+    pickle.dump(y,f)
+    
+#Unpickling dataset
+X_in=open('X.pickle','rb')
+y_in=open('y.pickle','rb')
+X=pickle.load(X_in)
+y=pickle.load(y_in)
+
+#Creating the corpus
+corpus=[]
+for i in range(0,2000):
+    review=re.sub(r'\W','',str(X[i]))
+    review=review.lower()
+    review=re.sub(r'^br$','',review)
+    review=re.sub(r'\s+br\s+','',review)
+    review=re.sub(r'\s+[a-z]\s+','',review)
+    review=re.sub(r'^b\s+','',review)
+    review=re.sub(r'\s+','',review)
+    corpus.append(review)
+    
