@@ -52,12 +52,12 @@ def get_contacts(filename):
     dt=[] #for today date
     with open(filename, mode='r', encoding='utf-8') as contacts_file:
         today=time.strftime('%m%d')
-        for a_contact in contacts_file:
+        for a_contact in contacts_file.read():
             if today in a_contact:
                 dt.append(a_contact.split()[0])
                 names.append(a_contact.split()[1])
                 emails.append(a_contact.split()[2])
-                a_contact=a_contact+a_contact
+                
                 
     return dt, names, emails
 
@@ -96,7 +96,7 @@ def main():
         s.send_message(msg)
     
         del msg
-    s.quit()
+    #s.quit()
     
 if __name__ == '__main__':
     checkWeekendsupport()

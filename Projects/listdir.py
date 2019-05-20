@@ -27,7 +27,7 @@ path="/home/pandit/Downloads/Projects/Months"
 #listoffiles=os.listdir(path)
 #print(listoffiles)
 
-path="/home/pandit/Downloads/Projects/Months/2019-02"
+path="/home/pandit/Downloads/Projects/Months/"+tm
 
 
 def checkWeekendsupport():
@@ -73,13 +73,3 @@ if __name__ == '__main__':
     checkWeekendsupport()
     sendemail()
     
-    
-'''
-if tm in listoffiles:
-    filename=open(tm,'r')
-    print("pandit")
-    with open(filename,'r') as f:
-        for line in f.split():
-            data.append(line)
-print(data)
-'''
